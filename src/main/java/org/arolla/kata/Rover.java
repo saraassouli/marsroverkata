@@ -12,7 +12,27 @@ public class Rover {
     }
 
     public void runCommand(char cmd) {
+        if(cmd=='R') {
+            rightRotation();
+        }
+    }
 
+    private void rightRotation() {
+        switch (this.orientation) {
+            case 'N':
+                this.orientation = 'E';
+                break;
+            case 'E':
+                this.orientation = 'S';
+                break;
+            case 'S':
+                this.orientation = 'W';
+                break;
+            case 'W':
+                this.orientation = 'N';
+                break;
+
+        }
     }
 
     public int getXCoordinate() {
