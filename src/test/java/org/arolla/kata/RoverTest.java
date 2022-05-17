@@ -14,9 +14,7 @@ class RoverTest {
        command.chars().forEach(value -> rover.runCommand((char) value));
 
        //then
-       Assertions.assertEquals(1,rover.getXCoordinate());
-       Assertions.assertEquals(3,rover.getYCoordinate());
-       Assertions.assertEquals('N',rover.getOrientation());
+       Assertions.assertEquals("1 3 N",rover.getPosition());
 
     }
 
@@ -29,9 +27,7 @@ class RoverTest {
         command.chars().forEach(value -> rover.runCommand((char) value));
 
         //then
-        Assertions.assertEquals(5,rover.getXCoordinate());
-        Assertions.assertEquals(1,rover.getYCoordinate());
-        Assertions.assertEquals('E',rover.getOrientation());
+        Assertions.assertEquals("5 1 E",rover.getPosition());
 
     }
 
@@ -43,10 +39,7 @@ class RoverTest {
         rover.runCommand('R');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('E',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 E",rover.getPosition());
     }
 
     @Test
@@ -57,10 +50,7 @@ class RoverTest {
         rover.runCommand('R');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('S',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 S",rover.getPosition());
     }
 
     @Test
@@ -71,10 +61,7 @@ class RoverTest {
         rover.runCommand('R');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('W',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 W",rover.getPosition());
     }
 
     @Test
@@ -85,10 +72,7 @@ class RoverTest {
         rover.runCommand('R');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('N',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 N",rover.getPosition());
     }
 
 
@@ -100,10 +84,7 @@ class RoverTest {
         rover.runCommand('L');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('W',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 W",rover.getPosition());
     }
 
     @Test
@@ -114,10 +95,7 @@ class RoverTest {
         rover.runCommand('L');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('S',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 S",rover.getPosition());
     }
 
     @Test
@@ -128,10 +106,7 @@ class RoverTest {
         rover.runCommand('L');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('E',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 E",rover.getPosition());
     }
 
     @Test
@@ -142,10 +117,7 @@ class RoverTest {
         rover.runCommand('L');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(3,rover.getYCoordinate());
-        Assertions.assertEquals('N',rover.getOrientation());
-
+        Assertions.assertEquals("1 3 N",rover.getPosition());
     }
 
     @Test
@@ -156,9 +128,17 @@ class RoverTest {
         rover.runCommand('M');
 
         //then
-        Assertions.assertEquals(1,rover.getXCoordinate());
-        Assertions.assertEquals(4,rover.getYCoordinate());
-        Assertions.assertEquals('N',rover.getOrientation());
+        Assertions.assertEquals("1 4 N",rover.getPosition());
+    }
 
+    @Test
+    void should_deny_move_when_position_is_0_1_w(){
+        // given
+        Rover rover = new Rover(0,1,'W');
+        //when
+        rover.runCommand('M');
+
+        //then
+        Assertions.assertEquals("0 1 W",rover.getPosition());
     }
 }

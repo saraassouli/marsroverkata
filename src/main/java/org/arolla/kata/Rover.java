@@ -12,27 +12,34 @@ public class Rover {
     }
 
     public void runCommand(char cmd) {
-        if(cmd=='R') {
-            rightRotation();
-        }else if(cmd=='L') {
-            leftRotation();
+        switch (cmd) {
+            case 'R':
+                rightRotation();
+                break;
+            case 'L':
+                leftRotation();
+                break;
+            case 'M':
+                move();
+                break;
         }
-        else if(cmd=='M') {
-            switch (this.orientation) {
-                case 'N':
-                    this.y++;
-                    break;
-                case 'E':
-                    this.x++;
-                    break;
-                case 'S':
-                    this.y--;
-                    break;
-                case 'W':
-                    this.x--;
-                    break;
+    }
 
-            }
+    private void move() {
+        switch (this.orientation) {
+            case 'N':
+                if (y < 5) this.y++;
+                break;
+            case 'E':
+                if (x < 5) this.x++;
+                break;
+            case 'S':
+                if (y > 0) this.y--;
+                break;
+            case 'W':
+                if (x > 0) this.x--;
+                break;
+
         }
     }
 
@@ -82,5 +89,9 @@ public class Rover {
 
     public char getOrientation() {
         return orientation;
+    }
+
+    public String getPosition() {
+        return this.x + " " + this.y + " " + this.orientation;
     }
 }
