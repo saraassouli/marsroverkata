@@ -21,6 +21,21 @@ class RoverTest {
     }
 
     @Test
+    void should_return_5_1_as_position_and_E_as_orientation(){
+        // given
+        Rover rover = new Rover(3,3,'E');
+        //when
+        String command="MMRMMRMRRM";
+        command.chars().forEach(value -> rover.runCommand((char) value));
+
+        //then
+        Assertions.assertEquals(5,rover.getXCoordinate());
+        Assertions.assertEquals(1,rover.getYCoordinate());
+        Assertions.assertEquals('E',rover.getOrientation());
+
+    }
+
+    @Test
     void should_return_1_3_as_position_and_E_as_orientation_when_cmd_is_R(){
         // given
         Rover rover = new Rover(1,3,'N');
