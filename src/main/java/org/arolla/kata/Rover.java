@@ -17,6 +17,9 @@ public class Rover {
         }else if(cmd=='L') {
             leftRotation();
         }
+        else if(cmd=='M') {
+            this.y++;
+        }
     }
 
     private void rightRotation() {
