@@ -11,7 +11,7 @@ public class Rover {
         this.orientation = orientation;
     }
 
-    public void runCommand(String cmd) {
+    public void runCommand(char cmd) {
 
     }
 
