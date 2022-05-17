@@ -14,6 +14,8 @@ public class Rover {
     public void runCommand(char cmd) {
         if(cmd=='R') {
             rightRotation();
+        }else if(cmd=='L') {
+            leftRotation();
         }
     }
 
@@ -30,6 +32,24 @@ public class Rover {
                 break;
             case 'W':
                 this.orientation = 'N';
+                break;
+
+        }
+    }
+
+    private void leftRotation() {
+        switch (this.orientation) {
+            case 'N':
+                this.orientation = 'W';
+                break;
+            case 'E':
+                this.orientation = 'N';
+                break;
+            case 'S':
+                this.orientation = 'E';
+                break;
+            case 'W':
+                this.orientation = 'S';
                 break;
 
         }
