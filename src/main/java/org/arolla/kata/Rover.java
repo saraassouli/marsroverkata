@@ -18,7 +18,21 @@ public class Rover {
             leftRotation();
         }
         else if(cmd=='M') {
-            this.y++;
+            switch (this.orientation) {
+                case 'N':
+                    this.y++;
+                    break;
+                case 'E':
+                    this.x++;
+                    break;
+                case 'S':
+                    this.y--;
+                    break;
+                case 'W':
+                    this.x--;
+                    break;
+
+            }
         }
     }
 
