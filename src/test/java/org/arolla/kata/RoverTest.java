@@ -132,4 +132,18 @@ class RoverTest {
         Assertions.assertEquals('N',rover.getOrientation());
 
     }
+
+    @Test
+    void should_move_to_1_4_position(){
+        // given
+        Rover rover = new Rover(1,3,'N');
+        //when
+        rover.runCommand('M');
+
+        //then
+        Assertions.assertEquals(1,rover.getXCoordinate());
+        Assertions.assertEquals(4,rover.getYCoordinate());
+        Assertions.assertEquals('N',rover.getOrientation());
+
+    }
 }
